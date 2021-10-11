@@ -6,6 +6,6 @@ on:
 
 jobs:
   call-workflow-1:
-    uses: NissesSenap/githubworkflowplay/.github/workflows/workflow.yaml@f073c0668d628bfded6edb5b1ee6738bfd06ab42
+    uses: NissesSenap/githubworkflowplay/.github/workflows/workflow.yaml@43583eba33d08b478d6a4a14dc1febfccc5d14ac
     with:
       username: mona
