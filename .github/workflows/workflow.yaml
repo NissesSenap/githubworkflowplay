@@ -6,7 +6,6 @@ on:
       username:
         required: true
         type: string
-    secrets:
       token:
         default: "something"
         required: false
