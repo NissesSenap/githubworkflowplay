@@ -9,6 +9,7 @@ on:
       token:
         default: "something"
         required: false
+        type: string
 
 jobs:
   example_job:
