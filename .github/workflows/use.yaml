@@ -4,8 +4,11 @@ on:
     branches:
       - main
 
+env:
+  ENVIRONMENTS: "env1"
+
 jobs:
   call-workflow-1:
-    uses: NissesSenap/githubworkflowplay/.github/workflows/workflow.yaml@43583eba33d08b478d6a4a14dc1febfccc5d14ac
+    uses: NissesSenap/githubworkflowplay/.github/workflows/workflow.yaml@14fb445962cc59df3a1819175179d56d34f7fb13
     with:
       username: mona
