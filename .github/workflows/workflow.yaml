@@ -13,6 +13,9 @@ on:
       dir:
         required: true
         type: string
+      test:
+        required: true
+        type: boolean
 
 env:
   DIR: ${{ inputs.dir }}
@@ -28,4 +31,4 @@ jobs:
           echo "token: ${{ inputs.token }}"
           echo "this is a env: ${ENVIRONMENTS}"
           echo "This is dir: ${DIR}"
-          env
+          echo "test"
