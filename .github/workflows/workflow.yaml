@@ -27,3 +27,5 @@ jobs:
           echo "username: ${{ inputs.username }}"
           echo "token: ${{ inputs.token }}"
           echo "this is a env: ${ENVIRONMENTS}"
+          echo "This is dir: ${DIR}"
+          env
