@@ -10,6 +10,12 @@ on:
         default: "something"
         required: false
         type: string
+      dir:
+        required: true
+        type: string
+
+env:
+  DIR: ${{ inputs.dir }}
 
 jobs:
   example_job:
