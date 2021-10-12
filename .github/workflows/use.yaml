@@ -9,7 +9,8 @@ env:
 
 jobs:
   call-workflow-1:
-    uses: NissesSenap/githubworkflowplay/.github/workflows/workflow.yaml@4a4cefb692107cffc298f2269b6a902c18c0327e
+    uses: NissesSenap/githubworkflowplay/.github/workflows/workflow.yaml@5a6deba36e364c022afccd08d0b84cd9226dc7b8
     with:
       username: mona
       dir: dir1
+      test: true
