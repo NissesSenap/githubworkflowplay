@@ -15,7 +15,7 @@ on:
         type: string
       test:
         required: true
-        type: boolean
+        type: string
 
 env:
   DIR: ${{ inputs.dir }}
