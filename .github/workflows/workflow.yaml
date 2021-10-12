@@ -31,4 +31,4 @@ jobs:
           echo "token: ${{ inputs.token }}"
           echo "this is a env: ${ENVIRONMENTS}"
           echo "This is dir: ${DIR}"
-          echo "test"
+          echo "test ${{ inputs.test }}""
