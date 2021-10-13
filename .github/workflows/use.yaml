@@ -9,10 +9,16 @@ env:
 
 jobs:
   call-workflow-1:
-    uses: NissesSenap/githubworkflowplay/.github/workflows/workflow.yaml@ea984b402debdf26289c2900cdd40aedbfcc31b6
+    uses: NissesSenap/githubworkflowplay/.github/workflows/workflow.yaml@f33c36953fe219e1669935b6ac5466117bc01fd4
     with:
       username: mona
       dir: dir1
       test: "true"
+      ENVIRONMENTS: |
+        {
+          "environments":[
+            {"name":"dev"},
+          ]
+        }
     secrets:
       DATA: ${{ secrets.DATA }}
