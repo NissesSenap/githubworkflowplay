@@ -22,7 +22,7 @@ on:
 
 env:
   DIR: ${{ inputs.dir }}
-  HEJ: ${{fromJson(secrets.DATA)["dev"]}}
+  HEJ: ${{ secrets.DATA }}
 
 jobs:
   example_job:
