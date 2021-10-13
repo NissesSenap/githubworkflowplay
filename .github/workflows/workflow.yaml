@@ -16,16 +16,35 @@ on:
       test:
         required: true
         type: string
+      ENVIRONMENTS:
+        description: '{"environments":[{"name":"dev"}, {"name":"qa"}]}'
+        required: true
+        type: string
     secrets:
       DATA:
         required: true
 
 env:
   DIR: ${{ inputs.dir }}
-  HEJ: ${{ secrets.DATA }}
 
 jobs:
-  example_job:
+  set_env_matrix:
+    outputs:
+      matrix: ${{ steps.set-matrix.outputs.matrix }}
+    runs-on: ubuntu-latest
+    steps:
+      - name: Set matrix for environment
+        id: set-matrix
+        run: |
+          set -e
+          echo '${{ inputs.ENVIRONMENTS }}' | jq .
+          MATRIX=$(echo '${{ inputs.ENVIRONMENTS }}' | jq -c .)
+          echo "::set-output name=matrix::${MATRIX}
+  terraform_plan:
+    needs: set_env_matrix
+    strategy:
+      fail-fast: false
+      matrix: ${{fromJson(needs.set_env_matrix.outputs.matrix)}}
     name: Pass input and secrets to my-action
     runs-on: ubuntu-latest
     steps:
@@ -36,4 +55,4 @@ jobs:
           echo "this is a env: ${ENVIRONMENTS}"
           echo "This is dir: ${DIR}"
           echo "test ${{ inputs.test }}"
-          echo "THIS IS HEJ: ${HEJ}"
+          echo "THIS IS DATA in dev: ${{fromJson(secrets.DATA)[matrix.environments.name]}}"
