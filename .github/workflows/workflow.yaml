@@ -16,9 +16,13 @@ on:
       test:
         required: true
         type: string
+    secrets:
+      DATA:
+        required: true
 
 env:
   DIR: ${{ inputs.dir }}
+  HEJ: ${{fromJson(secrets.DATA)["dev"]}}
 
 jobs:
   example_job:
@@ -31,4 +35,5 @@ jobs:
           echo "token: ${{ inputs.token }}"
           echo "this is a env: ${ENVIRONMENTS}"
           echo "This is dir: ${DIR}"
-          echo "test ${{ inputs.test }}""
+          echo "test ${{ inputs.test }}"
+          echo "THIS IS HEJ: ${HEJ}"
