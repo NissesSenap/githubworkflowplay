@@ -39,13 +39,13 @@ jobs:
           set -e
           echo '${{ inputs.ENVIRONMENTS }}' | jq .
           MATRIX=$(echo '${{ inputs.ENVIRONMENTS }}' | jq -c .)
-          echo "::set-output name=matrix::${MATRIX}
+          echo "::set-output name=matrix::${MATRIX}"
+
   terraform_plan:
     needs: set_env_matrix
     strategy:
       fail-fast: false
       matrix: ${{fromJson(needs.set_env_matrix.outputs.matrix)}}
-    name: Pass input and secrets to my-action
     runs-on: ubuntu-latest
     steps:
       - name: echo
