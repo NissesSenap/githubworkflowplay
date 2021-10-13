@@ -9,8 +9,10 @@ env:
 
 jobs:
   call-workflow-1:
-    uses: NissesSenap/githubworkflowplay/.github/workflows/workflow.yaml@8dc62686c449b8cce15f233b01fa5298aef5babe
+    uses: NissesSenap/githubworkflowplay/.github/workflows/workflow.yaml@1c9467936ab9c19e8175181e80e23241cfe25ea2
     with:
       username: mona
       dir: dir1
       test: "true"
+    secrets:
+      DATA: ${{ secrets.DATA }}
